@@ -10,7 +10,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: vjammula84:mcr.microsoft.com/dotnet/sdk:6.0
+    container: vjammula84/dockerhub:demoimage
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
