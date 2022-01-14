@@ -24,6 +24,4 @@ jobs:
     - name: Test
       run: |
         dotnet test --no-build --verbosity normal
-        WORKDIR /app
-        COPY myApp/bin/Debug .
         ENTRYPOINT ["dotnet","net6.0/myApp.dll"] 
