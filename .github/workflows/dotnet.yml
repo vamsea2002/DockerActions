@@ -20,13 +20,14 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: |
+        dotnet build --no-restore
+        dotnet run
     # - name: Test
     #   run: |
     #     dotnet test --no-build --verbosity normal
-    - name: Entry Test
-      run: |
-        #WORKDIR /app
-        COPY myApp/bin/Debug .
-        ls
-        ENTRYPOINT ["dotnet","net6.0/myApp.dll"] 
+    # - name: Entry Test
+    #   run: |
+    #     COPY myApp/bin/Debug .
+    #     ls
+    #     ENTRYPOINT ["dotnet","net6.0/myApp.dll"] 
