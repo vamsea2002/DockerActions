@@ -22,7 +22,7 @@ jobs:
     - name: Build
       run: |
         dotnet build --no-restore
-        dotnet run "myApp/bin/Debug/net6.0/myApp.dll"
+        dotnet "myApp/bin/Debug/net6.0/myApp.dll"
     # dotnet run --project "myApp/myApp.csproj"
     # - name: Test
     #   run: |
