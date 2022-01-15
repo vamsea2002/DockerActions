@@ -22,7 +22,7 @@ jobs:
     - name: Build
       run: |
         dotnet build --no-restore
-        dotnet run
+        dotnet run --project "myApp/myApp.csproj"
     # - name: Test
     #   run: |
     #     dotnet test --no-build --verbosity normal
