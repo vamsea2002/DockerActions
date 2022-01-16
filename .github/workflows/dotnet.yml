@@ -22,6 +22,7 @@ jobs:
     - name: Build
       run: |
         dotnet build --no-restore
+    - name: entry point test    
       with:
         entrypoint: 'dotnet'
         args: 'myApp/bin/Debug/net6.0/myApp.dll'
