@@ -19,10 +19,8 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
-      run: |
-        dotnet build --no-restore
-    - name: entry point test    
+    - name: Build and test
+      run: dotnet build --no-restore
       with:
         entrypoint: 'dotnet'
         args: 'myApp/bin/Debug/net6.0/myApp.dll'
