@@ -23,21 +23,7 @@ jobs:
     - name: Build
       run: |
         dotnet build --no-restore
-        dotnet "myApp/bin/Debug/net6.0/myApp.dll"
-    - name: pull-request
-      uses: repo-sync/pull-request@v2
-      with:
-        source_branch: ""
-        destination_branch: "main"
-        pr_title: "Pulling ${{ github.ref }} into master" # Title of pull request
-        pr_body: ":crown: *An automated PR*"              # Full markdown support, requires pr_title to be set
-        #  pr_template: ".github/PULL_REQUEST_TEMPLATE.md"   # Path to pull request template, requires pr_title to be set, excludes pr_body
-        pr_reviewer: "vamsea2002"                         # Comma-separated list (no spaces)
-        pr_assignee: "vamsea2002"                         # Comma-separated list (no spaces)
-        pr_label: "auto-pr"                               # Comma-separated list (no spaces)
-        pr_draft: false                                    # Creates pull request as draft
-        pr_allow_empty: true                              # Creates pull request even if there are no changes
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        dotnet "myApp/bin/Debug/net6.0/myApp.dll"    
         
     - name: Bump version and push tag
       id: tag_version
