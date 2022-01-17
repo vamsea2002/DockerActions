@@ -36,13 +36,4 @@ jobs:
         pr_label: "auto-pr"                               # Comma-separated list (no spaces)
         pr_draft: false                                    # Creates pull request as draft
         pr_allow_empty: true                              # Creates pull request even if there are no changes
-        github_token: ${{ secrets.GITHUB_TOKEN }}        
-    # dotnet run --project "myApp/myApp.csproj"
-    # - name: Test
-    #   run: |
-    #     dotnet test --no-build --verbosity normal
-    # - name: Entry Test
-    #   run: |
-    #     COPY myApp/bin/Debug .
-    #     ls
-    #     ENTRYPOINT ["dotnet","net6.0/myApp.dll"] 
+        github_token: ${{ secrets.GITHUB_TOKEN }}
