@@ -12,7 +12,11 @@ jobs:
     outputs:
       should_run: ${{ steps.should_run.outputs.should_run }}
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+         ref: main
+        
       - name: print latest_commit
         run: |
          pastdate=$(date --date="${dataset_date} -3 day" +%Y-%m-%d);todaysdate=$(date +'%Y-%m-%d');commitcount=$(git log main --pretty="%h %an %ad" --since=$pastdate --until=$todaysdate | wc -l)
