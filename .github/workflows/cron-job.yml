@@ -21,7 +21,7 @@ jobs:
         shell: bash
         run: |
          git pull
-         pastdate=$(date --date="${dataset_date} -3 day" +%Y-%m-%d);todaysdate=$(date +'%Y-%m-%d');commitcount=$(git log main --pretty="%h %an %ad" --since=$pastdate --until=$todaysdate | wc -l)
+         pastdate=$(date --date="${dataset_date} -3 day" +%Y-%m-%d);todaysdate=$(date +'%Y-%m-%d');commitcount=$(git log --pretty="%h %an %ad" --since=$pastdate --until=$todaysdate | wc -l)
          echo commit count = $commitcount between $pastdate and $todaysdate
 
       - id: should_run
