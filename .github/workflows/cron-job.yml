@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v2
         with:
          ref: main
+         fetch-depth: 0
         
       - name: print latest_commit
         shell: bash
