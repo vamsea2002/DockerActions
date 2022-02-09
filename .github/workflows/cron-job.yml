@@ -27,7 +27,7 @@ jobs:
       runs-on: ubuntu-latest
       name: do-something
       steps:
-        - name: Checkout        
-          uses: actions/checkout@v2.4.0
+        - name: Print        
+          run: echo '______________-----------______________'
        
    
