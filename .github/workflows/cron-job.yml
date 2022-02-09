@@ -14,7 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: print latest_commit
-        run: echo ${{ github.sha }}
+        run: |
+         echo ${{ github.sha }}
+         pastdate=$(date --date="${dataset_date} -3 day" +%Y-%m-%d)
+         todaysdate=$(date +'%Y-%m-%d')
+         commitcount=$(git log main --pretty="%h %an %ad" --since=$pastdate --until=$todaysdate | wc -l)
+         echo commit count = $commitcount between $pastdate and $todaysdate
 
       - id: should_run
         continue-on-error: true
