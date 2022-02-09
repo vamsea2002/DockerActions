@@ -1,10 +1,12 @@
-check_date:
-    on:
-  push:
-    branches: [ test ]
-  
-  workflow_dispatch:
-  
+name: build
+on:
+ push:
+  branches: [ main ]
+ 
+ workflow_dispatch:
+ 
+jobs:
+  check_date:
     runs-on: ubuntu-latest
     name: Check latest commit
     outputs:
@@ -19,3 +21,13 @@ check_date:
         name: check latest commit is less than a day
         if: ${{ github.event_name == 'schedule' }}
         run: test -z $(git rev-list  --after="24 hours"  ${{ github.sha }}) && echo "::set-output name=should_run::false"
+  job2:
+      needs: check_date
+      if: ${{ needs.check_date.outputs.should_run != 'false' }}
+      runs-on: ubuntu-latest
+      name: do-something
+      steps:
+        - name: Checkout        
+          uses: actions/checkout@v2.4.0
+       
+   
