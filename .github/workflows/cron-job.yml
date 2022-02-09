@@ -20,7 +20,7 @@ jobs:
         continue-on-error: true
         name: check latest commit is less than a day
         if: ${{ github.event_name == 'push' }}
-        run: test -z $(git rev-list  --after="24 hours"  ${{ github.sha }}) && echo "::set-output name=should_run::false"
+        run: git rev-list --after="24 hours" ${{ github.sha }} && echo "::set-output name=should_run::false"
   job2:
       needs: check_date
       if: ${{ needs.check_date.outputs.should_run != 'false' }}
