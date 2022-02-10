@@ -4,8 +4,8 @@ on:
   branches: [ main ]
   paths-ignore:
       - '**.md'
- schedule: 
-    - cron: '19 * * * *'
+ #schedule: 
+    #- cron: '19 * * * *'
     
  workflow_dispatch:
  
