@@ -2,9 +2,11 @@ name: build
 on:
  push:
   branches: [ main ]
- schedule:
-  - cron: '41 * * * *' 
-  
+  paths-ignore:
+      - '**.md'
+ schedule: 
+    - cron: '19 * * * *'
+    
  workflow_dispatch:
  
 jobs:
